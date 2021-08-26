@@ -61,10 +61,10 @@
                                 placeholder="Cerca o inizia una nuova chat">
                         </div>
                         <!-- Start user chat -->
-                        <div class="container-fluid">
-                            <div class="row personal-overflow" style="height: 600px;">
-                                <div v-for="(contact, index) in contacts"
-                                    class="col-12 p-3 bg-wa border border-1 border-dark cursor-pointer">
+                        <div class="container-fluid bg-wa personal-overflow" style="height: 600px;">
+                            <div class="row">
+                                <div v-for="(contact, index) in contacts" v-if="showItem(contact.name)"
+                                    class="col-12 p-2 cursor-pointer">
                                     <section class="d-flex">
                                         <img style="width: 70px;" class="rounded-circle"
                                             :src="'./img/avatar' + contact.avatar + '.jpg'" alt="User-chat">
@@ -81,43 +81,43 @@
                         <div class="col-12 bg-chat personal-overflow p-3">
                             <div class="container p-5">
                                 <div class="col-3 ms-auto p-3 bg-user rounded-pill mt-2">
-                                    <p class="fw-bold m-0">Ciao</p>
+                                    <p class="fw-light m-0">Ciao</p>
                                 </div>
                                 <div class="col-3 me-auto p-3 bg-cpu rounded-pill mt-2">
-                                    <p class="fw-bold m-0">Ciao</p>
+                                    <p class="fw-light m-0">Ciao</p>
                                 </div>
                                 <div class="col-3 me-auto p-3 bg-cpu rounded-pill mt-2">
-                                    <p class="fw-bold m-0">Ciao</p>
+                                    <p class="fw-light m-0">Ciao</p>
                                 </div>
                                 <div class="col-3 me-auto p-3 bg-cpu rounded-pill mt-2">
-                                    <p class="fw-bold m-0">Ciao</p>
+                                    <p class="fw-light m-0">Ciao</p>
                                 </div>
                                 <div class="col-3 ms-auto p-3 bg-user rounded-pill mt-2">
-                                    <p class="fw-bold m-0">Ciao</p>
+                                    <p class="fw-light m-0">Ciao</p>
                                 </div>
                                 <div class="col-3 ms-auto p-3 bg-user rounded-pill mt-2">
-                                    <p class="fw-bold m-0">Ciao</p>
+                                    <p class="fw-light m-0">Ciao</p>
                                 </div>
                                 <div class="col-3 ms-auto p-3 bg-user rounded-pill mt-2">
-                                    <p class="fw-bold m-0">Ciao</p>
+                                    <p class="fw-light m-0">Ciao</p>
                                 </div>
                                 <div class="col-3 ms-auto p-3 bg-user rounded-pill mt-2">
-                                    <p class="fw-bold m-0">Ciao</p>
+                                    <p class="fw-light m-0">Ciao</p>
                                 </div>
                                 <div class="col-3 ms-auto p-3 bg-user rounded-pill mt-2">
-                                    <p class="fw-bold m-0">Ciao</p>
+                                    <p class="fw-light m-0">Ciao</p>
                                 </div>
                                 <div class="col-3 ms-auto p-3 bg-user rounded-pill mt-2">
-                                    <p class="fw-bold m-0">Ciao</p>
+                                    <p class="fw-light m-0">Ciao</p>
                                 </div>
                                 <div class="col-3 ms-auto p-3 bg-user rounded-pill mt-2">
-                                    <p class="fw-bold m-0">Ciao</p>
+                                    <p class="fw-light m-0">Ciao</p>
                                 </div>
                                 <div class="col-3 ms-auto p-3 bg-user rounded-pill mt-2">
-                                    <p class="fw-bold m-0">Ciao</p>
+                                    <p class="fw-light m-0">Ciao</p>
                                 </div>
                                 <div class="col-3 ms-auto p-3 bg-user rounded-pill mt-2">
-                                    <p class="fw-bold m-0">Ciao</p>
+                                    <p class="fw-light m-0">Ciao</p>
                                 </div>
                             </div>
                         </div>
