@@ -34,7 +34,7 @@ const app = new Vue({
             this.currentIndex = index;
         },
         addList() {
-            this.chat.push(this.message);
+            this.chat.push(this.message.trim());
             this.message = '';
         },
     },

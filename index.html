@@ -86,15 +86,12 @@
                         <div v-for="(contact,index) in contacts" v-if="showChat(index)"
                             class="col-12 bg-chat personal-overflow p-3">
                             <div class="container p-5">
-                                <div class="col-3 me-auto p-3 bg-cpu rounded-pill mt-2 overflow-hidden">
-                                    <p class="fw-light m-0">Ciao</p>
-                                </div>
                                 <div v-for="(element,index) in chat"
                                     class="col-3 ms-auto p-3 bg-user rounded-pill mt-2 overflow-hidden">
                                     <p class="fw-light m-0">{{element}}</p>
                                 </div>
                                 <div class="col-3 me-auto p-3 bg-cpu rounded-pill mt-2 overflow-hidden">
-                                    <p class="fw-light m-0">{{chatCpu[randomNumber(chatCpu.length - 1, 0)]}}</p>
+                                    <p class=" fw-light m-0">{{chatCpu[randomNumber(chatCpu.length - 1, 0)]}}</p>
                                 </div>
                             </div>
                         </div>
