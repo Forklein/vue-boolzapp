@@ -8,6 +8,7 @@ const app = new Vue({
         user: user,
         contacts: contacts,
         search: '',
+        currentIndex: 0,
         chat: ["Ciao", "Come stai?"],
     },
     methods: {
@@ -18,7 +19,14 @@ const app = new Vue({
             if (contact.toLowerCase().includes(this.search.trim().toLowerCase())) {
                 return true;
             }
-        }
-
+        },
+        showChat(index) {
+            if (index === this.currentIndex) {
+                return true;
+            }
+        },
+        addIndex(index) {
+            this.currentIndex = index;
+        },
     },
 });
