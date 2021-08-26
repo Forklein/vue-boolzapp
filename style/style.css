@@ -1,3 +1,8 @@
 body {
     background: -webkit-gradient(linear, left top, left bottom, from(#128C7E), to(#ECE5DD)) fixed;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.bg-wa{
+    background-color: #ECE5DD;
 }
