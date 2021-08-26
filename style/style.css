@@ -6,3 +6,16 @@ body {
 .bg-wa{
     background-color: #ECE5DD;
 }
+
+.bg-notify{
+    background-color: #8edafc;
+}
+
+.bg-chat{
+    background-image: url('../img/mine.jpg');
+    min-height: 650px;
+}
+
+.personal-overflow{
+    overflow-y: scroll;
+}

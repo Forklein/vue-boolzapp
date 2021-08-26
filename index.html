@@ -17,31 +17,72 @@
 
 <body>
 
-    <div id="app" class="container p-3">
-        <div class="row">
-            <div class="col-4 p-3 bg-wa d-flex justify-content-between align-items-center">
-                <section class="d-flex">
-                    <img style="width: 70px;" class="rounded-circle" src="./img/avatar_io.jpg" alt="User-chat">
-                    <p class="fw-bold p-3">Nome Utente</p>
-                </section>
-                <section class="d-flex">
-                    <i class="fas fa-circle-notch fa-spin fa-2x text-secondary p-2"></i>
-                    <i class="fas fa-comment-alt fa-2x text-secondary p-2"></i>
-                    <i class="fas fa-ellipsis-v fa-2x text-secondary p-2"></i>
-                </section>
+    <div id="app" class="container p-3 vh-100">
+        <header>
+            <div class="row">
+                <div class="col-4 p-3 bg-wa d-flex justify-content-between align-items-center">
+                    <section class="d-flex">
+                        <img style="width: 70px;" class="rounded-circle" src="./img/avatar_io.jpg" alt="User-chat">
+                        <p class="fw-bold p-3">Nome Utente</p>
+                    </section>
+                    <section class="d-flex">
+                        <i class="fas fa-circle-notch fa-spin text-secondary p-2" style="font-size: 25px;"></i>
+                        <i class="fas fa-comment-alt text-secondary p-2" style="font-size: 25px;"></i>
+                        <i class="fas fa-ellipsis-v text-secondary p-2" style="font-size: 25px;"></i>
+                    </section>
+                </div>
+                <div class="col-8 p-3 bg-wa d-flex justify-content-between align-items-center">
+                    <section class="d-flex">
+                        <img style="width: 70px;" class="rounded-circle" src="./img/avatar_1.jpg" alt="User-chat">
+                        <p class="fw-bold p-3">Michele</p>
+                    </section>
+                    <section class="d-flex">
+                        <i class="fas fa-search text-secondary p-2" style="font-size: 25px;"></i>
+                        <i class="fas fa-paperclip text-secondary p-2" style="font-size: 25px;"></i>
+                        <i class="fas fa-ellipsis-v text-secondary p-2" style="font-size: 25px;"></i>
+                    </section>
+                </div>
             </div>
-            <div class="col-8 p-3 bg-wa d-flex justify-content-between align-items-center">
-                <section class="d-flex">
-                    <img style="width: 70px;" class="rounded-circle" src="./img/avatar_1.jpg" alt="User-chat">
-                    <p class="fw-bold p-3">Michele</p>
-                </section>
-                <section class="d-flex">
-                    <i class="fas fa-search fa-2x text-secondary p-2"></i>
-                    <i class="fas fa-paperclip fa-2x text-secondary p-2"></i>
-                    <i class="fas fa-ellipsis-v fa-2x text-secondary p-2"></i>
-                </section>
+        </header>
+        <main>
+            <div class="row">
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-12 p-3 bg-notify d-flex">
+                            <i class="fas fa-bell-slash rounded-circle bg-white text-info p-3"></i>
+                            <div class="notify-info ms-1">
+                                <p class="m-0 fw-bold">Ricevi notifiche di nuovi messaggi</p>
+                                <p class="text-decoration-underline m-0">Attiva notifiche desktop</p>
+                            </div>
+                        </div>
+                        <div class="col-12 p-3 bg-wa">
+                            <input type="text" v-model="search" class="w-100"
+                                placeholder="Cerca o inizia una nuova chat">
+                        </div>
+                        <!-- Start user chat -->
+                        <div class="container-fluid">
+                            <div class="row personal-overflow" style="min-height: 600px;">
+                                <div class="col-12 p-3 bg-wa border border-1 border-dark">
+                                    <section class="d-flex">
+                                        <img style="width: 70px;" class="rounded-circle" src="./img/avatar_1.jpg"
+                                            alt="User-chat">
+                                        <p class="fw-bold p-3">Michele</p>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-12 bg-chat personal-overflow"></div>
+                        <div class="col-12 bg-wa" style="min-height: 90px;">
+
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </main>
     </div>
 
 
