@@ -63,11 +63,12 @@
                         <!-- Start user chat -->
                         <div class="container-fluid">
                             <div class="row personal-overflow" style="height: 600px;">
-                                <div class="col-12 p-3 bg-wa border border-1 border-dark cursor-pointer">
+                                <div v-for="(contact, index) in contacts"
+                                    class="col-12 p-3 bg-wa border border-1 border-dark cursor-pointer">
                                     <section class="d-flex">
-                                        <img style="width: 70px;" class="rounded-circle" src="./img/avatar_1.jpg"
-                                            alt="User-chat">
-                                        <p class="fw-bold p-3">Michele</p>
+                                        <img style="width: 70px;" class="rounded-circle"
+                                            :src="'./img/avatar' + contact.avatar + '.jpg'" alt="User-chat">
+                                        <p class="fw-bold p-3">{{contact.name}}</p>
                                     </section>
                                 </div>
                             </div>
