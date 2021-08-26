@@ -31,3 +31,7 @@ body {
 .cursor-pointer{
     cursor: pointer;
 }
+
+#contact:hover{
+    background-color: rgba(0, 0, 0, 0.3);
+}
