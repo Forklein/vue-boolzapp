@@ -13,9 +13,21 @@ body {
 
 .bg-chat{
     background-image: url('../img/mine.jpg');
-    min-height: 650px;
+    height: 650px;
+}
+
+.bg-user{
+    background-color: #d5f9ba;
+}
+
+.bg-cpu{
+    background-color: #fff;
 }
 
 .personal-overflow{
     overflow-y: scroll;
+}
+
+.cursor-pointer{
+    cursor: pointer;
 }
