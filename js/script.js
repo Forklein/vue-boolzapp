@@ -31,8 +31,12 @@ const app = new Vue({
             this.currentIndex = index;
         },
         addList() {
-            this.data.push(this.message.trim());
-            this.message = '';
+            this.data.contacts[this.currentIndex].messages.push({
+                date: '10/01/2020 15:30:55',
+                message: this.message,
+                status: 'sent',
+            })
+            this.message = ''
         },
     },
 });
