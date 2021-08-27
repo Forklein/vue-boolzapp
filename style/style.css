@@ -6,7 +6,7 @@ body {
 time{
     font-size: 12px;
     position: relative;
-    left: 60%;
+    left: 50%;
 }
 
 .bg-wa{
@@ -44,4 +44,8 @@ time{
 
 #contact:hover{
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+#chat{
+    border-radius: 50px;
 }

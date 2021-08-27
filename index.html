@@ -28,9 +28,10 @@
                         <p class="fw-bold p-3">{{data.user.name}}</p>
                     </section>
                     <section class="d-flex">
-                        <i class="fas fa-circle-notch fa-spin text-secondary p-2" style="font-size: 25px;"></i>
-                        <i class="fas fa-comment-alt text-secondary p-2" style="font-size: 25px;"></i>
-                        <i class="fas fa-ellipsis-v text-secondary p-2" style="font-size: 25px;"></i>
+                        <i class="fas fa-circle-notch fa-spin text-secondary p-2 cursor-pointer"
+                            style="font-size: 25px;"></i>
+                        <i class="fas fa-comment-alt text-secondary p-2 cursor-pointer" style="font-size: 25px;"></i>
+                        <i class="fas fa-ellipsis-v text-secondary p-2 cursor-pointer" style="font-size: 25px;"></i>
                     </section>
                 </div>
                 <div class="col-8 p-3 bg-wa d-flex justify-content-between align-items-center">
@@ -92,11 +93,14 @@
                         <div v-for="(contact,index) in data.contacts" v-if="showChat(index)"
                             class="col-12 bg-chat personal-overflow p-3">
                             <div class="container p-5">
-                                <div v-if="showChatMessage(message.message)" v-for="(message,index) in contact.messages"
-                                    :class="message.status === 'sent' ? 'ms-auto bg-user' : 'me-auto bg-cpu'"
-                                    class="w-50 p-3 rounded-pill mt-2">
-                                    <p class="fw-light m-0">{{message.message}}</p>
-                                    <time datetime="2021-08-03T10:07">{{message.date}}</time>
+                                <div class="row flex-column">
+                                    <div id="chat" v-if="showChatMessage(message.message)"
+                                        v-for="(message,index) in contact.messages"
+                                        :class="message.status === 'sent' ? 'ms-auto bg-user' : 'me-auto bg-cpu'"
+                                        class="col-4 p-3 mt-2">
+                                        <p class="fw-light m-0">{{message.message}}</p>
+                                        <time datetime="2021-08-03T10:07">{{message.date}}</time>
+                                    </div>
                                 </div>
                             </div>
                         </div>
