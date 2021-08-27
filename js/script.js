@@ -38,9 +38,9 @@ const app = new Vue({
         },
         userOrCpu(status) {
             if (status === 'sent') {
-                return 'ms-auto bg-user'
+                return 'ms-auto bg-user';
             } else {
-                return 'me-auto bg-cpu'
+                return 'me-auto bg-cpu';
             }
             /* status === 'sent' ? 'ms-auto bg-user' : 'me-auto bg-cpu'; */
         },
