@@ -1,6 +1,9 @@
 console.log('Vue is activated', Vue);
 Vue.config.devtools = true;
 
+//# PLUGIN DAYJS
+dayjs.extend(dayjs_plugin_customParseFormat);
+
 const app = new Vue({
     el: '#app',
     data: {
@@ -11,7 +14,7 @@ const app = new Vue({
         message: '',
         searchChatMessage: false,
         currentIndex: 0,
-        cpuMessage: ['Ok', 'Vabene', 'Non lo so']
+        cpuMessage: ['Ok', 'Vabene', 'Non lo so', 'Forse più tardi', 'Sto andando a mangiare']
     },
     methods: {
         randomNumber(max, min) {
@@ -35,13 +38,13 @@ const app = new Vue({
         },
         addList() {
             this.data.contacts[this.currentIndex].messages.push({
-                date: '10/01/2020 15:30:55',
+                date: dayjs().format('DD/MM/YY HH:mm:ss'),
                 message: this.message,
                 status: 'sent',
             })
             setTimeout(() => {
                 this.data.contacts[this.currentIndex].messages.push({
-                    date: '10/01/2020 15:30:55',
+                    date: dayjs().format('DD/MM/YY HH:mm:ss'),
                     message: this.cpuMessage[this.randomNumber(this.cpuMessage.length - 1, 0)],
                     status: 'received',
                 })
