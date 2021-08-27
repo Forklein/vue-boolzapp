@@ -5,8 +5,7 @@ const app = new Vue({
     el: '#app',
     data: {
         test: 'Hello Vue',
-        user: user,
-        contacts: contacts,
+        data: data,
         search: '',
         message: '',
         currentIndex: 0,
