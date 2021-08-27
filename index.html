@@ -42,8 +42,11 @@
                             <h6 class="m-0">Ultimo accesso oggi alle 05:00</h6>
                         </div>
                     </section>
-                    <section class="d-flex">
-                        <i class="fas fa-search text-secondary p-2 cursor-pointer" style="font-size: 25px;"></i>
+                    <section class="d-flex align-items-center">
+                        <input class="h-50" type="text" v-model="searchChat" v-if="searchChatMessage"
+                            placeholder="Cerca nella chat...">
+                        <i @click="showSearchChat()" class="fas fa-search text-secondary p-2 cursor-pointer"
+                            style="font-size: 25px;"></i>
                         <i class="fas fa-paperclip text-secondary p-2 cursor-pointer" style="font-size: 25px;"></i>
                         <i class="fas fa-ellipsis-v text-secondary p-2 cursor-pointer" style="font-size: 25px;"></i>
                     </section>
@@ -68,11 +71,11 @@
                                 placeholder="Cerca o inizia una nuova chat">
                         </div>
                         <!-- Start user list chat -->
-                        <div class="container-fluid bg-wa personal-overflow" style="height: 600px;">
+                        <div class="container-fluid bg-wa personal-overflow shadow" style="height: 600px;">
                             <div class="row">
                                 <div id="contact" v-for="(contact, index) in data.contacts"
-                                    v-if="showItem(contact.name)" class="col-12 p-2 cursor-pointer"
-                                    @click="addIndex(index)">
+                                    v-if="showItem(contact.name)" :class="currentIndex === index ? 'active' : ''"
+                                    class="col-12 p-2 cursor-pointer" @click="addIndex(index)">
                                     <section class="d-flex">
                                         <img style="width: 70px;" class="rounded-circle"
                                             :src="'./img/avatar' + contact.avatar + '.jpg'" alt="User-chat">
@@ -89,7 +92,7 @@
                         <div v-for="(contact,index) in data.contacts" v-if="showChat(index)"
                             class="col-12 bg-chat personal-overflow p-3">
                             <div class="container p-5">
-                                <div v-for="(message,index) in contact.messages"
+                                <div v-if="showChatMessage(message.message)" v-for="(message,index) in contact.messages"
                                     :class="message.status === 'sent' ? 'ms-auto bg-user' : 'me-auto bg-cpu'"
                                     class="w-50 p-3 rounded-pill mt-2">
                                     <p class="fw-light m-0">{{message.message}}</p>
@@ -97,12 +100,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 bg-wa p-3 d-flex justify-content-around align-items-center"
+                        <div class="col-12 bg-wa p-3 d-flex justify-content-around align-items-center text-center"
                             style="min-height: 90px;">
-                            <i class="far fa-smile fa-2x text-secondary cursor-pointer"></i>
-                            <input type="text" @keyup.enter="addList" class="w-75 p-3 rounded-3" v-model="message"
-                                placeholder="Scrivi un messaggio">
-                            <i class="fas fa-microphone fa-2x text-secondary cursor-pointer"></i>
+                            <div class="col-1">
+                                <i class="far fa-smile fa-2x text-secondary cursor-pointer"></i>
+                            </div>
+                            <div class="col">
+                                <input type="text" @keyup.enter="addList" class="w-100 p-3" v-model="message"
+                                    placeholder="Scrivi un messaggio">
+                            </div>
+                            <div class="col-1">
+                                <i class="fas fa-microphone fa-2x text-secondary cursor-pointer"></i>
+                            </div>
                         </div>
                     </div>
                 </div>

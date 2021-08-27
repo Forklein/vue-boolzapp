@@ -7,7 +7,9 @@ const app = new Vue({
         test: 'Hello Vue',
         data: data,
         search: '',
+        searchChat: '',
         message: '',
+        searchChatMessage: false,
         currentIndex: 0,
         cpuMessage: ['Ok', 'Vabene', 'Non lo so']
     },
@@ -46,5 +48,16 @@ const app = new Vue({
             }, 1000)
             this.message = ''
         },
+        showSearchChat() {
+            this.searchChatMessage = !this.searchChatMessage;
+        },
+        showChatMessage(message) {
+            if (!this.searchChat) {
+                return true;
+            }
+            if (message.toLowerCase().includes(this.searchChat.trim().toLowerCase())) {
+                return true;
+            }
+        }
     },
 });
