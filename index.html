@@ -97,8 +97,7 @@
                             <div class="container p-5">
                                 <div class="row flex-column">
                                     <div id="chat" v-if="showChatMessage(message.message)"
-                                        v-for="(message,index) in contact.messages"
-                                        :class="message.status === 'sent' ? 'ms-auto bg-user' : 'me-auto bg-cpu'"
+                                        v-for="(message,index) in contact.messages" :class="userOrCpu(message.status)"
                                         class="col-4 p-3 mt-2">
                                         <p class="fw-light m-0">{{message.message}}</p>
                                         <time>{{message.date}}</time>

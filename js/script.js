@@ -36,6 +36,14 @@ const app = new Vue({
         addIndex(index) {
             this.currentIndex = index;
         },
+        userOrCpu(status) {
+            if (status === 'sent') {
+                return 'ms-auto bg-user'
+            } else {
+                return 'me-auto bg-cpu'
+            }
+            /* status === 'sent' ? 'ms-auto bg-user' : 'me-auto bg-cpu'; */
+        },
         addList() {
             this.data.contacts[this.currentIndex].messages.push({
                 date: dayjs().format('DD/MM/YY HH:mm:ss'),
