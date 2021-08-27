@@ -39,13 +39,13 @@
                             alt="User-chat">
                         <div class="p-3">
                             <p class="fw-bold m-0">{{contact.name}}</p>
-                            <h6 class="m-0">Ultimo accesso oggi alle</h6>
+                            <h6 class="m-0">Ultimo accesso oggi alle 05:00</h6>
                         </div>
                     </section>
                     <section class="d-flex">
-                        <i class="fas fa-search text-secondary p-2" style="font-size: 25px;"></i>
-                        <i class="fas fa-paperclip text-secondary p-2" style="font-size: 25px;"></i>
-                        <i class="fas fa-ellipsis-v text-secondary p-2" style="font-size: 25px;"></i>
+                        <i class="fas fa-search text-secondary p-2 cursor-pointer" style="font-size: 25px;"></i>
+                        <i class="fas fa-paperclip text-secondary p-2 cursor-pointer" style="font-size: 25px;"></i>
+                        <i class="fas fa-ellipsis-v text-secondary p-2 cursor-pointer" style="font-size: 25px;"></i>
                     </section>
                 </div>
             </div>
@@ -55,7 +55,9 @@
                 <div class="col-4">
                     <div class="row">
                         <div class="col-12 p-3 bg-notify d-flex">
-                            <i class="fas fa-bell-slash rounded-circle bg-white text-info p-3"></i>
+                            <div class="bell rounded-circle bg-white text-info" style="width: 50px; height: 50px;">
+                                <i class="fas fa-bell-slash p-3"></i>
+                            </div>
                             <div class="notify-info ms-1">
                                 <p class="m-0 fw-bold">Ricevi notifiche di nuovi messaggi</p>
                                 <p class="text-decoration-underline m-0">Attiva notifiche desktop</p>
@@ -87,21 +89,24 @@
                         <div v-for="(contact,index) in data.contacts" v-if="showChat(index)"
                             class="col-12 bg-chat personal-overflow p-3">
                             <div class="container p-5">
-                                <div v-for="(element,index) in chat"
-                                    class="col-3 ms-auto p-3 bg-user rounded-pill mt-2 overflow-hidden">
-                                    <p class="fw-light m-0">{{element}}</p>
+                                <div v-for="(message,index) in contact.messages"
+                                    class="w-50 ms-auto p-3 bg-user rounded-pill mt-2">
+                                    <p class="fw-light m-0">{{message.message}}</p>
+                                    <time datetime="2021-08-03T10:07">{{message.date}}</time>
                                 </div>
-                                <div class="col-3 me-auto p-3 bg-cpu rounded-pill mt-2 overflow-hidden">
-                                    <p class=" fw-light m-0">{{chatCpu[randomNumber(chatCpu.length - 1, 0)]}}</p>
+                                <div v-for="(message,index) in contact.messages"
+                                    class="w-50 me-auto p-3 bg-cpu rounded-pill mt-2">
+                                    <p class=" fw-light m-0">{{message.message}}</p>
+                                    <time datetime="2021-08-03T10:07">{{message.date}}</time>
                                 </div>
                             </div>
                         </div>
                         <div class="col-12 bg-wa p-3 d-flex justify-content-around align-items-center"
                             style="min-height: 90px;">
-                            <i class="far fa-smile fa-2x text-secondary"></i>
-                            <input type="text" @keyup.enter="addList" class="w-75 p-3 rounded rounded-3"
-                                v-model="message" placeholder="Scrivi un messaggio">
-                            <i class="fas fa-microphone fa-2x text-secondary"></i>
+                            <i class="far fa-smile fa-2x text-secondary cursor-pointer"></i>
+                            <input type="text" @keyup.enter="addList" class="w-75 p-3 rounded-3" v-model="message"
+                                placeholder="Scrivi un messaggio">
+                            <i class="fas fa-microphone fa-2x text-secondary cursor-pointer"></i>
                         </div>
                     </div>
                 </div>

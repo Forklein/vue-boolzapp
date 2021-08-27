@@ -9,8 +9,6 @@ const app = new Vue({
         search: '',
         message: '',
         currentIndex: 0,
-        chat: ["Ciao", "Come stai?"],
-        chatCpu: ["Si", "No", "Non lo so", "Assolutamente si"],
     },
     methods: {
         randomNumber(max, min) {
@@ -33,7 +31,7 @@ const app = new Vue({
             this.currentIndex = index;
         },
         addList() {
-            this.chat.push(this.message.trim());
+            this.data.push(this.message.trim());
             this.message = '';
         },
     },
