@@ -90,13 +90,9 @@
                             class="col-12 bg-chat personal-overflow p-3">
                             <div class="container p-5">
                                 <div v-for="(message,index) in contact.messages"
-                                    class="w-50 ms-auto p-3 bg-user rounded-pill mt-2">
+                                    :class="message.status === 'sent' ? 'ms-auto bg-user' : 'me-auto bg-cpu'"
+                                    class="w-50 p-3 rounded-pill mt-2">
                                     <p class="fw-light m-0">{{message.message}}</p>
-                                    <time datetime="2021-08-03T10:07">{{message.date}}</time>
-                                </div>
-                                <div v-for="(message,index) in contact.messages"
-                                    class="w-50 me-auto p-3 bg-cpu rounded-pill mt-2">
-                                    <p class=" fw-light m-0">{{message.message}}</p>
                                     <time datetime="2021-08-03T10:07">{{message.date}}</time>
                                 </div>
                             </div>
