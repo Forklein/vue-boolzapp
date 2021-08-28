@@ -1,3 +1,14 @@
+//# Random Number Function for time
+
+const randomNumber = (max, min) => {
+  let random = Math.floor(Math.random() * (max - min + 1) + min);
+  if (random < 10) {
+    random = `0${random}`
+  }
+  return `${random}`
+}
+
+//# Object Data
 const data = {
   user: {
     name: 'Forklein',
@@ -8,6 +19,7 @@ const data = {
       name: 'Michele',
       avatar: '_1',
       visible: true,
+      access: `${randomNumber(23, 0)}:${randomNumber(0, 59)}`,
       messages: [
         {
           date: '10/01/2020 15:30:55',
@@ -30,6 +42,7 @@ const data = {
       name: 'Fabio',
       avatar: '_2',
       visible: true,
+      access: `${randomNumber(23, 0)}:${randomNumber(0, 59)}`,
       messages: [
         {
           date: '20/03/2020 16:30:00',
@@ -52,6 +65,7 @@ const data = {
       name: 'Samuele',
       avatar: '_3',
       visible: true,
+      access: `${randomNumber(23, 0)}:${randomNumber(0, 59)}`,
       messages: [
         {
           date: '28/03/2020 10:10:40',
@@ -74,6 +88,7 @@ const data = {
       name: 'Luisa',
       avatar: '_4',
       visible: true,
+      access: `${randomNumber(23, 0)}:${randomNumber(0, 59)}`,
       messages: [
         {
           date: '10/01/2020 15:30:55',
