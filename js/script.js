@@ -7,7 +7,6 @@ dayjs.extend(dayjs_plugin_customParseFormat);
 const app = new Vue({
     el: '#app',
     data: {
-        test: 'Hello Vue',
         data: data,
         search: '',
         searchChat: '',
@@ -17,7 +16,6 @@ const app = new Vue({
         writeChat: false,
         currentIndex: 0,
         currentIndexChat: 0,
-        day: 'ieri',
         cpuMessage: ['Ok', 'Vabene', 'Non lo so', 'Forse più tardi', 'Sto andando a mangiare']
     },
     methods: {
@@ -69,11 +67,10 @@ const app = new Vue({
             this.message = '';
             const newObject = this.data.contacts.map((element, index) => {
                 if (index === this.currentIndex) {
-                    element.access = dayjs().format('HH:mm');
+                    element.access = `Ultimo accesso oggi alle ${dayjs().format('HH:mm')}`;
                 }
                 return element;
             })
-            this.day = 'oggi';
             this.addList.contacts = newObject;
         },
         showSearchChat() {
