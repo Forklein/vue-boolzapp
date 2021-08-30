@@ -45,14 +45,15 @@ const app = new Vue({
             /* status === 'sent' ? 'ms-auto bg-user' : 'me-auto bg-cpu'; */
         },
         addList() {
+            if (!this.message) return;
             this.data.contacts[this.currentIndex].messages.push({
-                date: dayjs().format('DD/MM/YY HH:mm:ss'),
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                 message: this.message,
                 status: 'sent',
             })
             setTimeout(() => {
                 this.data.contacts[this.currentIndex].messages.push({
-                    date: dayjs().format('DD/MM/YY HH:mm:ss'),
+                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                     message: this.cpuMessage[this.randomNumber(this.cpuMessage.length - 1, 0)],
                     status: 'received',
                 })

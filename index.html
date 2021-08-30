@@ -42,11 +42,11 @@
                             alt="User-chat">
                         <div class="p-3">
                             <p class="fw-bold m-0">{{contact.name}}</p>
-                            <h6 class="m-0">Ultimo accesso oggi alle {{contact.access}}</h6>
+                            <h6 class="m-0">Ultimo accesso ieri alle {{contact.access}}</h6>
                         </div>
                     </section>
                     <section class="d-flex align-items-center">
-                        <input class="h-50" type="text" v-model="searchChat" v-if="searchChatMessage"
+                        <input class="h-50" type="text" v-model.trim="searchChat" v-if="searchChatMessage"
                             placeholder="Cerca nella chat...">
                         <i @click="showSearchChat()" class="fas fa-search text-secondary p-2 cursor-pointer"
                             style="font-size: 25px;"></i>
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <div class="col-12 p-3 bg-wa">
-                            <input type="text" v-model="search" class="w-100"
+                            <input type="text" v-model.trim="search" class="w-100"
                                 placeholder="Cerca o inizia una nuova chat">
                         </div>
                         <!-- Start user list chat -->
@@ -99,6 +99,9 @@
                                     <div id="chat" v-if="showChatMessage(message.message)"
                                         v-for="(message,index) in contact.messages" :class="userOrCpu(message.status)"
                                         class="col-4 p-3 mt-2">
+                                        <div class="option text-end">
+                                            <i class="fas fa-ellipsis-h ms-auto cursor-pointer"></i>
+                                        </div>
                                         <p class="fw-light m-0">{{message.message}}</p>
                                         <time>{{message.date}}</time>
                                     </div>
@@ -111,7 +114,7 @@
                                 <i class="far fa-smile fa-2x text-secondary cursor-pointer"></i>
                             </div>
                             <div class="col">
-                                <input type="text" @keyup.enter="addList" class="w-100 p-3" v-model="message"
+                                <input type="text" @keyup.enter="addList" class="w-100 p-3" v-model.trim="message"
                                     placeholder="Scrivi un messaggio">
                             </div>
                             <div class="col-1">
