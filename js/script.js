@@ -14,6 +14,7 @@ const app = new Vue({
         message: '',
         searchChatMessage: false,
         editChat: false,
+        writeChat: false,
         currentIndex: 0,
         currentIndexChat: 0,
         cpuMessage: ['Ok', 'Vabene', 'Non lo so', 'Forse più tardi', 'Sto andando a mangiare']
@@ -38,6 +39,7 @@ const app = new Vue({
         addIndex(index) {
             this.currentIndex = index;
             this.editChat = false;
+            this.writeChat = false;
         },
         userOrCpu(status) {
             if (status === 'sent') {
@@ -54,14 +56,18 @@ const app = new Vue({
                 message: this.message,
                 status: 'sent',
             })
+            this.writeChat = true;
             setTimeout(() => {
                 this.data.contacts[this.currentIndex].messages.push({
                     date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                     message: this.cpuMessage[this.randomNumber(this.cpuMessage.length - 1, 0)],
                     status: 'received',
                 })
-            }, 1000)
-            this.message = ''
+            }, 1000);
+            this.message = '';
+            setTimeout(() => {
+                this.writeChat = false;
+            }, 1000);
         },
         showSearchChat() {
             this.searchChatMessage = !this.searchChatMessage;
