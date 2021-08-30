@@ -63,11 +63,11 @@ const app = new Vue({
                     message: this.cpuMessage[this.randomNumber(this.cpuMessage.length - 1, 0)],
                     status: 'received',
                 })
-            }, 1000);
+            }, 2000);
             this.message = '';
             setTimeout(() => {
                 this.writeChat = false;
-            }, 1000);
+            }, 2000);
         },
         showSearchChat() {
             this.searchChatMessage = !this.searchChatMessage;
