@@ -23,7 +23,7 @@
     <div id="app" class="container p-3">
         <header>
             <div class="row">
-                <div class="col-4 p-3 bg-wa d-flex justify-content-between align-items-center">
+                <div class="col-4 bg-wa d-flex justify-content-between align-items-center">
                     <section class="d-flex">
                         <img style="width: 70px;" class="rounded-circle"
                             :src="'./img/avatar' + data.user.avatar + '.jpg'" alt="User-chat">
@@ -102,7 +102,7 @@
                                     <div id="chat" v-if="showChatMessage(message.message)"
                                         v-for="(message,index) in contact.messages" :class="userOrCpu(message.status)"
                                         class="col-4 p-3 mt-2">
-                                        <div class="option text-end pb-2">
+                                        <div class="option text-end">
                                             <i @click="editMessage(index)"
                                                 class="fas fa-ellipsis-h ms-auto cursor-pointer"></i>
                                         </div>
@@ -112,8 +112,10 @@
                                                 <li><i class="far fa-trash-alt text-danger p-2"></i><b>Delete</b></li>
                                             </ul>
                                         </div>
-                                        <p v-else class="fw-light m-0">{{message.message}}</p>
-                                        <div class="timestamp text-end pt-2">
+                                        <div v-else class="chat-message">
+                                            <p class="fw-light m-0">{{message.message}}</p>
+                                        </div>
+                                        <div class="timestamp text-end">
                                             <time style="font-size: 12px;">{{message.date}}</time>
                                         </div>
                                     </div>
