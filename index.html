@@ -103,7 +103,7 @@
                                             <i @click="editMessage(index)"
                                                 class="fas fa-ellipsis-h ms-auto cursor-pointer"></i>
                                         </div>
-                                        <div v-if="editChat && (index === currentIndexChat)"
+                                        <div v-if="editChat && index === currentIndexChat"
                                             class="alert alert-danger m-0" role="alert">
                                             <ul @click="clearMessage(index)" class="m-0 list-unstyled cursor-pointer">
                                                 <li><i class="far fa-trash-alt text-danger p-2"></i><b>Delete</b></li>

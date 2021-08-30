@@ -37,6 +37,7 @@ const app = new Vue({
         },
         addIndex(index) {
             this.currentIndex = index;
+            this.editChat = !this.editChat;
         },
         userOrCpu(status) {
             if (status === 'sent') {
