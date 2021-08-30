@@ -24,10 +24,6 @@ body {
     background-color: #fff;
 }
 
-.personal-overflow{
-    overflow: auto;
-}
-
 .cursor-pointer{
     cursor: pointer;
 }

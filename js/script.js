@@ -16,7 +16,14 @@ const app = new Vue({
         writeChat: false,
         currentIndex: 0,
         currentIndexChat: 0,
-        cpuMessage: ['Ok', 'Vabene', 'Non lo so', 'Forse più tardi', 'Sto andando a mangiare']
+        cpuMessage: [
+            'Ok',
+            'Vabene',
+            'Non lo so',
+            'Forse più tardi',
+            'Sto andando a mangiare',
+            'Sto vedendo la partita',
+        ],
     },
     methods: {
         randomNumber(max, min) {
@@ -91,6 +98,6 @@ const app = new Vue({
         clearMessage(i) {
             this.data.contacts[this.currentIndex].messages.splice(i, 1);
             this.editChat = !this.editChat;
-        }
+        },
     },
 });

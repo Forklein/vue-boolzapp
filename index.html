@@ -77,7 +77,7 @@
                                 placeholder="Cerca o inizia una nuova chat">
                         </div>
                         <!-- Start user list chat -->
-                        <div class="container-fluid bg-wa personal-overflow shadow" style="height: 600px;">
+                        <div class="container-fluid bg-wa overflow-auto shadow" style="height: 600px;">
                             <div class="row">
                                 <div id="contact" v-for="(contact, index) in data.contacts"
                                     v-if="showItem(contact.name)" :class="currentIndex === index ? 'active' : ''"
@@ -96,13 +96,13 @@
                     <div class="row">
                         <!-- Chat -->
                         <div v-for="(contact,index) in data.contacts" v-if="showChat(index)"
-                            class="col-12 bg-chat personal-overflow p-3">
+                            class="col-12 bg-chat overflow-auto p-3">
                             <div class="container p-5">
                                 <div class="row flex-column">
                                     <div id="chat" v-if="showChatMessage(message.message)"
                                         v-for="(message,index) in contact.messages" :class="userOrCpu(message.status)"
-                                        class="col-4 px-4 mt-3 overflow-auto">
-                                        <div class="option text-end">
+                                        class="col-4 px-4 mt-3">
+                                        <div class="option text-end me-2">
                                             <i @click="editMessage(index)"
                                                 class="fas fa-ellipsis-h ms-auto cursor-pointer"></i>
                                         </div>
@@ -112,10 +112,10 @@
                                                 <li><i class="far fa-trash-alt text-danger p-2"></i><b>Delete</b></li>
                                             </ul>
                                         </div>
-                                        <div v-else class="chat-message">
+                                        <div v-else class="chat-message ms-2">
                                             <p class="fw-light m-0">{{message.message}}</p>
                                         </div>
-                                        <div class="timestamp text-end">
+                                        <div class="timestamp text-end me-2">
                                             <time style="font-size: 12px;">{{message.date}}</time>
                                         </div>
                                     </div>
