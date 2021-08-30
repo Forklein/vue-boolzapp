@@ -46,6 +46,7 @@
                         </div>
                     </section>
                     <section class="d-flex align-items-center">
+                        <i v-if="searchChatMessage" class="fas fa-search p-1"></i>
                         <input class="h-50" type="text" v-model.trim="searchChat" v-if="searchChatMessage"
                             placeholder="Cerca nella chat...">
                         <i @click="showSearchChat" class="fas fa-search text-secondary p-2 cursor-pointer"
@@ -69,7 +70,8 @@
                                 <p class="text-decoration-underline m-0">Attiva notifiche desktop</p>
                             </div>
                         </div>
-                        <div class="col-12 p-3 bg-wa">
+                        <div class="col-12 p-3 bg-wa d-flex align-items-center">
+                            <i class="fas fa-search p-1"></i>
                             <input type="text" v-model.trim="search" class="w-100"
                                 placeholder="Cerca o inizia una nuova chat">
                         </div>
