@@ -17,6 +17,7 @@ const app = new Vue({
         writeChat: false,
         currentIndex: 0,
         currentIndexChat: 0,
+        day: 'ieri',
         cpuMessage: ['Ok', 'Vabene', 'Non lo so', 'Forse più tardi', 'Sto andando a mangiare']
     },
     methods: {
@@ -66,6 +67,14 @@ const app = new Vue({
                 this.writeChat = false;
             }, 2000);
             this.message = '';
+            const newObject = this.data.contacts.map((element, index) => {
+                if (index === this.currentIndex) {
+                    element.access = dayjs().format('HH:mm');
+                }
+                return element;
+            })
+            this.day = 'oggi';
+            this.addList.contacts = newObject;
         },
         showSearchChat() {
             this.searchChatMessage = !this.searchChatMessage;
