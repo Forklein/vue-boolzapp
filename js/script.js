@@ -13,7 +13,9 @@ const app = new Vue({
         searchChat: '',
         message: '',
         searchChatMessage: false,
+        editChat: false,
         currentIndex: 0,
+        currentIndexChat: 0,
         cpuMessage: ['Ok', 'Vabene', 'Non lo so', 'Forse più tardi', 'Sto andando a mangiare']
     },
     methods: {
@@ -70,6 +72,14 @@ const app = new Vue({
             if (message.toLowerCase().includes(this.searchChat.trim().toLowerCase())) {
                 return true;
             }
+        },
+        editMessage(i) {
+            this.editChat = !this.editChat;
+            this.currentIndexChat = i;
+        },
+        clearMessage(i) {
+            this.data.contacts[this.currentIndex].messages.splice(i, 1);
+            this.editChat = !this.editChat;
         }
     },
 });
