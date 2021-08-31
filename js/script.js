@@ -101,5 +101,12 @@ const app = new Vue({
             this.data.contacts[this.currentIndex].messages.splice(i, 1);
             this.editChat = !this.editChat;
         },
+        getLastAccess(i) {
+            const fullData = this.data.contacts[i].messages[this.data.contacts[i].messages.length - 1].date;
+            const currentArray = [...fullData];
+            currentArray.splice(0, 11);
+            currentArray.splice(5, 3);
+            return currentArray.join('');
+        }
     },
 });

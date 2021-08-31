@@ -85,12 +85,20 @@
                                     v-if="showItem(contact.name)"
                                     :class="currentIndex === index && backgroundChat ? 'active' : ''"
                                     class="col-12 p-2 cursor-pointer" @click="addIndex(index)">
-                                    <section class="d-flex">
+                                    <section class="d-flex w-100">
                                         <img style="width: 70px;" class="rounded-circle"
                                             :src="'./img/avatar' + contact.avatar + '.jpg'" alt="User-chat">
-                                        <div class="user-info-list mx-2 d-flex flex-column align-items-center">
-                                            <p class="fw-bold m-0 align-self-start">{{contact.name}}</p>
-                                            <div class="text-icon d-flex">
+                                        <div
+                                            class="user-info-list mx-2 d-flex flex-column align-items-center flex-grow-1">
+                                            <div class="user-time w-100 d-flex justify-content-between">
+                                                <div class="contact">
+                                                    <p class="fw-bold m-0">{{contact.name}}</p>
+                                                </div>
+                                                <div class="last-access">
+                                                    <time>{{getLastAccess(index)}}</time>
+                                                </div>
+                                            </div>
+                                            <div class="text-icon d-flex align-self-start">
                                                 <i class="fas fa-check text-info align-self-center"></i>
                                                 <p class="fst-italic m-0 mx-2">
                                                     {{contact.messages[contact.messages.length -
