@@ -16,6 +16,18 @@ body {
     height: 650px;
 }
 
+.bg-default{
+    background-image: url('../img/background.jpg');
+    height: 750px;
+    background-size: contain;
+    background-position: center;
+}
+
+.header-default{
+    background-color: #252d30;
+    height: 100px;
+}
+
 .bg-user{
     background-color: #d5f9ba;
 }

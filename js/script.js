@@ -14,8 +14,9 @@ const app = new Vue({
         searchChatMessage: false,
         editChat: false,
         writeChat: false,
+        backgroundChat: false,
         currentIndex: 0,
-        currentIndexChat: 0,
+        currentIndexChat: 1,
         cpuMessage: [
             'Ok',
             'Vabene',
@@ -46,6 +47,7 @@ const app = new Vue({
             this.currentIndex = index;
             this.editChat = false;
             this.writeChat = false;
+            this.backgroundChat = true;
         },
         userOrCpu(status) {
             if (status === 'sent') {

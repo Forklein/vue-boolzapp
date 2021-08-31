@@ -36,8 +36,10 @@
                         <i class="fas fa-ellipsis-v text-secondary p-2 cursor-pointer" style="font-size: 25px;"></i>
                     </section>
                 </div>
-                <div class="col-8 p-3 bg-wa d-flex justify-content-between align-items-center">
-                    <section v-for="(contact,index) in data.contacts" v-if="showChat(index)" class="d-flex">
+                <div :class="backgroundChat ? '' : 'header-default'"
+                    class="col-8 p-3 bg-wa d-flex justify-content-between align-items-center">
+                    <section v-for="(contact,index) in data.contacts" v-if="showChat(index) && backgroundChat"
+                        class="d-flex">
                         <img style="width: 70px;" class="rounded-circle" :src="'./img/avatar' + contact.avatar + '.jpg'"
                             alt="User-chat">
                         <div class="p-3">
@@ -46,7 +48,7 @@
                             <h6 v-else class="m-0">{{contact.access}}</h6>
                         </div>
                     </section>
-                    <section class="d-flex align-items-center">
+                    <section v-if="backgroundChat" class="d-flex align-items-center">
                         <i v-if="searchChatMessage" class="fas fa-search p-1"></i>
                         <input class="h-50" type="text" v-model.trim="searchChat" v-if="searchChatMessage"
                             placeholder="Cerca nella chat...">
@@ -80,12 +82,22 @@
                         <div class="container-fluid bg-wa overflow-auto shadow" style="height: 600px;">
                             <div class="row">
                                 <div id="contact" v-for="(contact, index) in data.contacts"
-                                    v-if="showItem(contact.name)" :class="currentIndex === index ? 'active' : ''"
+                                    v-if="showItem(contact.name)"
+                                    :class="currentIndex === index && backgroundChat ? 'active' : ''"
                                     class="col-12 p-2 cursor-pointer" @click="addIndex(index)">
                                     <section class="d-flex">
                                         <img style="width: 70px;" class="rounded-circle"
                                             :src="'./img/avatar' + contact.avatar + '.jpg'" alt="User-chat">
-                                        <p class="fw-bold p-3">{{contact.name}}</p>
+                                        <div class="user-info-list mx-2 d-flex flex-column align-items-center">
+                                            <p class="fw-bold m-0 align-self-start">{{contact.name}}</p>
+                                            <div class="text-icon d-flex">
+                                                <i class="fas fa-check text-info align-self-center"></i>
+                                                <p class="fst-italic m-0 mx-2">
+                                                    {{contact.messages[contact.messages.length -
+                                                    1].message}}
+                                                </p>
+                                            </div>
+                                        </div>
                                     </section>
                                 </div>
                             </div>
@@ -96,10 +108,10 @@
                     <div class="row">
                         <!-- Chat -->
                         <div v-for="(contact,index) in data.contacts" v-if="showChat(index)"
-                            class="col-12 bg-chat overflow-auto p-3">
+                            :class="backgroundChat ? 'bg-chat' : 'bg-default'" class="col-12 overflow-auto p-3">
                             <div class="container p-5">
                                 <div class="row flex-column">
-                                    <div id="chat" v-if="showChatMessage(message.message)"
+                                    <div id="chat" v-if="showChatMessage(message.message) && backgroundChat"
                                         v-for="(message,index) in contact.messages" :class="userOrCpu(message.status)"
                                         class="col-4 px-4 mt-3">
                                         <div class="option text-end me-2">
@@ -109,7 +121,8 @@
                                         <div v-if="editChat && index === currentIndexChat"
                                             class="alert alert-danger m-0" role="alert">
                                             <ul @click="clearMessage(index)" class="m-0 list-unstyled cursor-pointer">
-                                                <li><i class="far fa-trash-alt text-danger p-2"></i><b>Delete</b></li>
+                                                <li><i class="far fa-trash-alt text-danger p-2"></i><b>Delete</b>
+                                                </li>
                                             </ul>
                                         </div>
                                         <div v-else class="chat-message ms-2">
@@ -123,7 +136,7 @@
                             </div>
                         </div>
                         <div class="col-12 bg-wa p-3 d-flex justify-content-around align-items-center text-center"
-                            style="min-height: 90px;">
+                            style="min-height: 90px;" v-if="backgroundChat">
                             <div class="col-1">
                                 <i class="far fa-smile fa-2x text-secondary cursor-pointer"></i>
                             </div>
